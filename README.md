@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # help_chem
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# HelpChem
+>>>>>>> 57b4d777e38de49e8d0cb6bda8c19d712a8f04f3
