@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+
+class StoichiometryPage  extends StatelessWidget {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Estequiometria'),
+      ),
+
+      body: Center(
+        child: Text('Cuerpo de la estequiometria'),
+      ),
+
+    );
+  }
+}
