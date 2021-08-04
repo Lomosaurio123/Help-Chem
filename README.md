@@ -1,6 +1,6 @@
 # Help-Chem
 
-![Landscpae 2](https://raw.githubusercontent.com/JuanBeltranG/ResourcesJBG/master/Help-Chem-Logo-R.png)
+![Help-Chem logo](https://raw.githubusercontent.com/JuanBeltranG/ResourcesJBG/master/Help-Chem-Logo-R.png)
 
 > An app designed to perform some chemical operations like stoichiometric calculations, Balance of matter and thermodynamics calculations.
 
