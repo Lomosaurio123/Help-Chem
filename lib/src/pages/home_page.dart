@@ -10,7 +10,7 @@ import 'matBalance_page.dart';
 
 class HomePage extends StatelessWidget {
 
-  final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), primary: getColorFromHex("#F1D514"),  );
+  final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), primary: getColorFromHex("#F1D514"), shape: StadiumBorder()  );
   final styleButton = new TextStyle(fontSize: 25, color: getColorFromHex("#000000") );
   
 
@@ -18,9 +18,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
+  
+
      backgroundColor: getColorFromHex("#297ed4"),
      body:Center(
       child: Column(
+      
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
 
