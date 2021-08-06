@@ -15,11 +15,7 @@ class _ElementsProvider {
 Future<List<dynamic>> cargarData() async{
 
     final resp= await rootBundle.loadString('data/data.json');
-
-    //Map dataMap = json.decode( resp );  //estamos convirtiendo al json en un map con la función decode
-    //elements = dataMap['rutas'];
-    List<Map<String,dynamic>> data = json.decode(resp);
-
+    List<dynamic> data = json.decode(resp);//sacamostodos los elemntos del JSON y los mandamos a la data para usarlos posteriormente
     elements = data;
 
     return elements;

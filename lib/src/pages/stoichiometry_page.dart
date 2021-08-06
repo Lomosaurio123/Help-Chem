@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:help_chem/src/providers/elements_providers.dart';
 
 
 class StoichiometryPage  extends StatelessWidget {
@@ -14,7 +15,12 @@ class StoichiometryPage  extends StatelessWidget {
       body: Center(
         child: Text('Cuerpo de la estequiometria'),
       ),
-
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.access_alarms),
+        onPressed: () {
+          print(elementsProvider.cargarData());
+        },
+      ),
     );
   }
 }
