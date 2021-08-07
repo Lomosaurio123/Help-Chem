@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:help_chem/src/providers/elements_providers.dart';
+import 'package:help_chem/src/utils/hex_color_util.dart';
 
 
 class StoichiometryPage  extends StatelessWidget {
@@ -10,6 +11,7 @@ class StoichiometryPage  extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Estequiometria'),
+        backgroundColor: getColorFromHex('#DA4573'),
       ),
 
       body: Center(
@@ -18,7 +20,7 @@ class StoichiometryPage  extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.access_alarms),
         onPressed: () {
-          print(elementsProvider.cargarData());
+        
         },
       ),
     );

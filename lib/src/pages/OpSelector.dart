@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 
@@ -20,6 +22,9 @@ class OperationSelectorPage extends StatelessWidget {
        padding:  EdgeInsets.symmetric(vertical: 40, horizontal: 5),
         children: <Widget>[
           
+          Container(
+            height: 70.0,
+          ),
           _cardTipo2(context),
           //SizedBox(height: 10.0,),
           _cardTipo3(context),
