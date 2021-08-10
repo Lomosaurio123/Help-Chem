@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 
@@ -8,66 +7,62 @@ import 'package:help_chem/src/utils/hex_color_util.dart';
 
 class OperationSelectorPage extends StatelessWidget {
   
+  final styleHeader = new TextStyle(fontSize: 16, color: getColorFromHex("#FFFFFF") );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        title: Text('Op selector'),
-      ),*/
+      backgroundColor: getColorFromHex('#5C94CF'),
+      body: CustomScrollView(
 
-      body:ListView(
-      
-       // padding: EdgeInsets.all(10),
-       padding:  EdgeInsets.symmetric(vertical: 40, horizontal: 5),
-        children: <Widget>[
-          
-          Container(
-            height: 70.0,
+        slivers: <Widget>[
+          SliverAppBar(
+            pinned: true,
+            snap: false ,
+            floating: true ,
+            expandedHeight: 170,
+            backgroundColor: getColorFromHex('#5C94CF') ,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text('Selector de operaciones', style: styleHeader ,) ,
+              background: Image(
+                 image: AssetImage('resources/Images/HeaderOpSelector.jpg'),
+                 width: 10,
+                 isAntiAlias: true,
+                 fit: BoxFit.fill,
+              ),
+            ),
           ),
-          _cardTipo2(context),
-          //SizedBox(height: 10.0,),
-          _cardTipo3(context),
-          //SizedBox(height: 10.0,),
-          _cardTipo4(context),
+          SliverToBoxAdapter(
 
-
-        ],
-      ),
-
-    );
-  }
-
-  Widget _cardTipo1() {
-
-    return Card(
-      elevation: 5.0,
-      //color: getColorFromHex("#297ed4") ,
-      shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(15)),
-      child: Column(
-        children: <Widget>[
-          ListTile(
-
-            leading: Icon( Icons.science, color: Colors.black,),
-            title: Text('Estequiometria'),
-            subtitle: Text('En este apartado podras realizar operaciones relacionadas con la estequiometria de una manera facil y rapida'),
+            child: Container(
+              
+              color: getColorFromHex('#5C94CF'),//'#23384F'
+              height: 55,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Center(
+                child: Text('Aqui podras seleccionar cualquiera de las operaciones disponibles', style: TextStyle(color: Colors.white, fontSize: 15 ), textAlign: TextAlign.center,),
+              ),
+            
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextButton(
-                child: Text('Comenzar'),
-                onPressed: (){
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [ 
+                _cardTipo2(context),
+                //SizedBox(height: 10.0,),
+                _cardTipo3(context),
+                //SizedBox(height: 10.0,),
+                _cardTipo4(context),
 
-                },
-              )
-            ],
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
+  
   Widget _cardTipo2(BuildContext context) {
 
     return Card(
@@ -78,30 +73,25 @@ class OperationSelectorPage extends StatelessWidget {
        child: Column(
          children: <Widget>[
 
-
-          /*FadeInImage(
-            image: NetworkImage('https://i.pinimg.com/originals/d6/59/32/d659327352c91c066f15cd8a6c625697.png'),
-            placeholder: AssetImage('resources/Images/jar-loading.gif'),
-          ),*/
+          SizedBox(height: 15.0,),
 
           Image(
-            height: 90,
-            width: 90,
+            height: 100,
+            width: 100,
             image: AssetImage('resources/Images/matraz.png')
             
           ),
 
-
-         
           Container(
             padding: EdgeInsets.all(15) ,
-             child: Text('Estequiometria')
+             child: Text('Estequiometria', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
-                child: Text('Comenzar'),
+                child: Text('Comenzar', style: TextStyle(color: Colors.white, fontSize: 18 ),),
                 onPressed: (){
 
                   Navigator.pushNamed(context, 'Stoichiometry');
@@ -115,11 +105,6 @@ class OperationSelectorPage extends StatelessWidget {
          ],
        ),
     );
-
-
-
-
-
   }
 
   Widget _cardTipo3(BuildContext context) {
@@ -132,30 +117,25 @@ class OperationSelectorPage extends StatelessWidget {
        child: Column(
          children: <Widget>[
 
-
-          /*FadeInImage(
-            image: NetworkImage('https://i.pinimg.com/originals/d6/59/32/d659327352c91c066f15cd8a6c625697.png'),
-            placeholder: AssetImage('resources/Images/jar-loading.gif'),
-          ),*/
+          SizedBox(height: 15.0,),
 
           Image(
-            height: 90,
-            width: 90,
+            height: 100,
+            width: 100,
             image: AssetImage('resources/Images/scales.png')
             
           ),
 
-
-         
           Container(
             padding: EdgeInsets.all(15) ,
-             child: Text('Balance de materia')
+             child: Text('Balance de materia', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
-                child: Text('Comenzar'),
+                child: Text('Comenzar', style: TextStyle(color: Colors.white, fontSize: 18),),
                 onPressed: (){
 
                   Navigator.pushNamed(context, 'MatterBalance');
@@ -172,7 +152,7 @@ class OperationSelectorPage extends StatelessWidget {
   }
 
 
-    Widget _cardTipo4(BuildContext context) {
+  Widget _cardTipo4(BuildContext context) {
 
     return Card(
       elevation: 5.0,
@@ -182,30 +162,25 @@ class OperationSelectorPage extends StatelessWidget {
        child: Column(
          children: <Widget>[
 
-
-          /*FadeInImage(
-            image: NetworkImage('https://i.pinimg.com/originals/d6/59/32/d659327352c91c066f15cd8a6c625697.png'),
-            placeholder: AssetImage('resources/Images/jar-loading.gif'),
-          ),*/
+          SizedBox(height: 15.0,),
 
           Image(
-            height: 90,
-            width: 90,
+            height: 100,
+            width: 100,
             image: AssetImage('resources/Images/thermometer.png')
             
           ),
-
-
          
           Container(
             padding: EdgeInsets.all(15) ,
-             child: Text('Termodinamica')
+             child: Text('Termodinamica', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
-                child: Text('Comenzar'),
+                child: Text('Comenzar', style: TextStyle(color: Colors.black, fontSize: 18),),
                 onPressed: (){
 
                   Navigator.pushNamed(context, 'Thermodynamics');
@@ -215,13 +190,10 @@ class OperationSelectorPage extends StatelessWidget {
             ],
           ),
 
-
          ],
        ),
     );
   }
-
-
 
 
 }
