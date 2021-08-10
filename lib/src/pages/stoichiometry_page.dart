@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:help_chem/src/providers/elements_providers.dart';
+import 'package:help_chem/src/options_provider/stoichiometry_op.dart';
 import 'package:help_chem/src/utils/hex_color_util.dart';
 
 
 class StoichiometryPage  extends StatelessWidget {
-  
+  final data = getOptionsStoichiometry();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,15 +19,28 @@ class StoichiometryPage  extends StatelessWidget {
       ),
 
       body: ListView(
-        padding: EdgeInsets.all(10.0),
-        children: <Widget>[
-          _optionCards()
-        ],
-      ),
+        padding: EdgeInsets.all(5.0),
+        children: _optionCards(data)
+      )
     );
   }
 
-  Widget _optionCards(){
-    
+  List<Widget> _optionCards(List<dynamic> data){
+    final List<Widget> options = [];
+    data.forEach((element) {
+      final temp = Card(
+        elevation: 10.0,
+        shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0) ),
+        child: ListTile(
+          title: Text(element['Titulo']),
+          subtitle: Text(element['Subtitulo']),
+          leading: Icon(element['Icono']),
+          trailing: Icon(Icons.arrow_forward_ios),
+          onTap: (){}
+        ),
+      );
+      options.add(temp);
+    });
+    return options;
   }
 }
