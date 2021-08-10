@@ -20,12 +20,12 @@ class StoichiometryPage  extends StatelessWidget {
 
       body: ListView(
         padding: EdgeInsets.all(5.0),
-        children: _optionCards(data)
+        children: _optionCards(data, context)
       )
     );
   }
 
-  List<Widget> _optionCards(List<dynamic> data){
+  List<Widget> _optionCards(List<dynamic> data, BuildContext context){
     final List<Widget> options = [];
     data.forEach((element) {
       final temp = Card(
@@ -36,7 +36,10 @@ class StoichiometryPage  extends StatelessWidget {
           subtitle: Text(element['Subtitulo']),
           leading: Icon(element['Icono']),
           trailing: Icon(Icons.arrow_forward_ios),
-          onTap: (){}
+          onTap: (){
+
+            Navigator.pushNamed(context, element['Ruta']);
+          }
         ),
       );
       options.add(temp);
