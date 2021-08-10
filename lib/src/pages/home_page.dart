@@ -10,8 +10,15 @@ import 'matBalance_page.dart';
 
 class HomePage extends StatelessWidget {
 
-  final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), primary: getColorFromHex("#F1D514"), shape: StadiumBorder()  );
-  final styleButton = new TextStyle(fontSize: 25, color: getColorFromHex("#000000") );
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    textStyle: const TextStyle(fontSize: 20), 
+    primary: getColorFromHex("#F1D514"), 
+    shape: StadiumBorder(),
+    minimumSize: Size(200, 50)  
+  );
+
+  final buttonStyle= new TextStyle(fontSize: 25, color: getColorFromHex("#000000"),fontWeight: FontWeight.bold,  );
+  final descriptionStyle = new TextStyle(fontSize: 19, color: getColorFromHex("#000000"), fontWeight: FontWeight.bold, );
   
 
   @override
@@ -20,16 +27,25 @@ class HomePage extends StatelessWidget {
 
   
 
-     backgroundColor: getColorFromHex("#297ed4"),
+     backgroundColor: getColorFromHex('#5C94CF'),//"#297ed4"
      body:Center(
       child: Column(
       
-        mainAxisAlignment: MainAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
 
        
           Image(
                 image: AssetImage('resources/Images/Help-Chem-logo.png') ,
+                
+                
+          ),
+
+          SizedBox(height: 40.0,),
+
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text('Help-Chem es la aplicación que te ayudara a realizar algunos cálculos quimicos', style: descriptionStyle , textAlign: TextAlign.center),
           ),
            
 
@@ -39,17 +55,12 @@ class HomePage extends StatelessWidget {
               style: style,
               onPressed: () {
 
-              /*  final route = MaterialPageRoute(
-                  builder: (context) => MatterBalanacePage()
-                  );
-                Navigator.push(context, route);*/
-
                 Navigator.pushNamed(context, 'OpSelector');
 
               },
 
-              child: Text('Comenzar', style: styleButton, ),
-            ),
+              child: Text('Comenzar', style: buttonStyle, ),
+          ),
 
 
         ],
