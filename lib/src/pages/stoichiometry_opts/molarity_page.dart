@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:help_chem/src/operations/stoichiometry/molecular_mass.dart';
+import 'package:help_chem/src/providers/elements_providers.dart';
 
 import 'package:help_chem/src/utils/hex_color_util.dart';
 
@@ -8,10 +10,10 @@ class MolarityPage extends StatefulWidget {
 }
 
 class _MolarityState extends State<MolarityPage> {
-  String _formula;
-  double _volumen;
-  double _masa;
-
+  String _formula="";
+  double _volumen=0;
+  double _masa=0;
+  double _molaridad=0;
 
 
   final ButtonStyle styleCalcular = ElevatedButton.styleFrom(
@@ -47,6 +49,17 @@ class _MolarityState extends State<MolarityPage> {
     );
   }
 
+  Widget bringData(){
+    return FutureBuilder(
+        future: elementsProvider.cargarData(), // En esta parte del codigo lo que se está realizando es de la instancia creada obtener el metodo que retorna un future
+        initialData: [], // esta parte es importante porque nos ayuda a siempre tener algo en el data sin tener errores de compilación cuando se ejecuta el método ForEach para obtener los elementos
+        builder: ( BuildContext context, AsyncSnapshot<List<dynamic>> snapshot ){
+          print( snapshot.data ); //Nos permitira visualizar la información del snapshot que es la traida del json      
+          getMolecularMass(snapshot.data,_formula);
+        },  
+      );
+  }
+
   Widget _inputFormula() {
     return TextField(
       decoration: InputDecoration(
@@ -77,7 +90,7 @@ class _MolarityState extends State<MolarityPage> {
           Icons.opacity,
           color: Colors.black,
         ),
-        helperText: 'Ingresa el volumen',
+        helperText: 'Ingresa el volumen (En caso de tener este dato)',
         counter: Text('Unidades: L'),
       ),
       onChanged: (valor) {
@@ -98,7 +111,7 @@ class _MolarityState extends State<MolarityPage> {
           Icons.straighten,
           color: Colors.black,
         ),
-        helperText: 'Ingresa la masa',
+        helperText: 'Ingresa la masa (En caso de tener este dato)',
         counter: Text('Unidades: gr'),
       ),
       onChanged: (valor) {
@@ -119,12 +132,12 @@ class _MolarityState extends State<MolarityPage> {
           Icons.biotech,
           color: Colors.black,
         ),
-        helperText: 'Ingresa la molaridad',
+        helperText: 'Ingresa la molaridad (En caso de tener este dato)',
         counter: Text('Unidades: /'),
       ),
       onChanged: (valor) {
-        _masa = double.parse(valor);
-        print(_masa);
+        _molaridad = double.parse(valor);
+        print(_molaridad);
       },
     );
   }

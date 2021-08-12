@@ -84,7 +84,7 @@ class OperationSelectorPage extends StatelessWidget {
 
           Container(
             padding: EdgeInsets.all(15) ,
-             child: Text('Estequiometria', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+             child: Text('Estequiometria y Disoluciones', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
           ),
 
           Row(

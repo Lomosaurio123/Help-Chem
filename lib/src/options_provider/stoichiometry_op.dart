@@ -41,8 +41,14 @@ List<dynamic> getOptionsStoichiometry(){
     },
     {
       "Titulo"    : "Fracción mol",
-      "Subtitulo" : "Obtener valores relacionados a la normalidad",
+      "Subtitulo" : "Obtener valores relacionados a la fracción mol",
       "Icono"     : Icons.show_chart,
+      "Ruta"      : "/",
+    },
+    {
+      "Titulo"    : "Estequiometria",
+      "Subtitulo" : "Obtener valores relacionados a la estequiometría química",
+      "Icono"     : Icons.science,
       "Ruta"      : "/",
     },
   ];

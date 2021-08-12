@@ -12,7 +12,7 @@ class StoichiometryPage  extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text('Estequiometría')
+            Text('Estequiometría y Disoluciones')
           ],
         ),
         backgroundColor: getColorFromHex('#DA4573'),
@@ -42,7 +42,8 @@ class StoichiometryPage  extends StatelessWidget {
           }
         ),
       );
-      options.add(temp);
+      options..add(SizedBox(height: 10.0,))
+              ..add(temp);
     });
     return options;
   }
