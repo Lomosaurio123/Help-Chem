@@ -14,7 +14,8 @@ class _MolarityState extends State<MolarityPage> {
   double _volumen=0;
   double _masa=0;
   double _molaridad=0;
-
+  double _pm=0;
+  List<dynamic> _data=[];
 
   final ButtonStyle styleCalcular = ElevatedButton.styleFrom(
     textStyle: const TextStyle(fontSize: 20), 
@@ -43,7 +44,7 @@ class _MolarityState extends State<MolarityPage> {
           SizedBox(height: 20.0),
           _inputMolaridad(),
           SizedBox(height: 30.0),
-          _botonCalcular(),
+          bringData(),
         ],
       ),
     );
@@ -55,7 +56,7 @@ class _MolarityState extends State<MolarityPage> {
         initialData: [], // esta parte es importante porque nos ayuda a siempre tener algo en el data sin tener errores de compilación cuando se ejecuta el método ForEach para obtener los elementos
         builder: ( BuildContext context, AsyncSnapshot<List<dynamic>> snapshot ){
           print( snapshot.data ); //Nos permitira visualizar la información del snapshot que es la traida del json      
-          getMolecularMass(snapshot.data,_formula);
+          return _botonCalcular(snapshot.data);
         },  
       );
   }
@@ -142,12 +143,13 @@ class _MolarityState extends State<MolarityPage> {
     );
   }
 
-  Widget _botonCalcular() {
+  Widget _botonCalcular(List<dynamic> data) {
     return ElevatedButton(
 
       style: styleCalcular,
       onPressed: () {
-        
+        _pm = getMolecularMass(data, _formula);
+        print(_pm);
       },
       child: Text(
         'Calcular',

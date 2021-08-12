@@ -2,21 +2,20 @@
 double getMolecularMass(List<dynamic> data, String formula){
   double molecular_mass=0.0;
   RegExp regEx = new RegExp(r"(?=.*[a-z])(?=.*[A-Z])\w+");
-  int length = formula.length;
   String construct, construct_num;
   double parse_1;
   int parse_2;
-  for(int i=0; i<length; i++){
+  for(int i=0; i<formula?.length; i++){
     if((int.tryParse(formula[i])==null) && construct.length == 0){
       construct  += formula[i];
     }
-    else if(((int.tryParse(formula[i])==null) && construct.length != 0)&&(regEx.hasMatch(construct))){
+    else if(((int.tryParse(formula[i])==null) && construct.length != 0)&&(regEx.hasMatch(formula[i]))){
       parse_1 = getInformation(data, construct);
       construct="";
       molecular_mass += parse_1;
     }
     else if(int.tryParse(formula[i])!=null){
-      for(int j=i; j<length; j++){
+      for(int j=i; j<formula.length; j++){
         if(int.tryParse(formula[j])==null){
           break;
         }
